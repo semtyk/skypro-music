@@ -2,7 +2,7 @@ import './tracklist.css'
 import Track from "./track";
 
 
-export default function TrackList() {
+export default function TrackList(props) {
     const arrOfTracks = [
         {
             title: 'Guilt',
@@ -70,7 +70,7 @@ export default function TrackList() {
     return (
         <div className="content__playlist playlist">
               {arrOfTracks.map((item) => <Track 
-                title={item.title} additionTitle={item.additionTitle} author={item.author}  album={item.album} time={item.time}
+                unvisible={props.unvisible} title={item.title} additionTitle={item.additionTitle} author={item.author}  album={item.album} time={item.time}
               />)}
         </div>
     )

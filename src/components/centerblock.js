@@ -3,7 +3,7 @@ import './centerblock.css'
 import TrackList from './tracklist'
 
 
-export default function CenterBlock() {
+export default function CenterBlock(props) {
     return (
         <div className="main__centerblock centerblock">
           <SearchPannel />
@@ -29,7 +29,7 @@ export default function CenterBlock() {
                 </svg>
               </div>
             </div>
-            <TrackList />
+            <TrackList unvisible = {props.isSkeleton}/>
           </div>
         </div>
     )

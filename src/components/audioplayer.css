@@ -201,6 +201,13 @@
     grid-area: author;
     min-width: 49px;
   }
+
+  .track-play__author-unvis,
+  .track-play__album-unvis {
+    background-color: #313131;
+    height: 15px;
+    width: 59px;
+  }
   
   .track-play__author-link {
     font-style: normal;
