@@ -142,10 +142,11 @@
   }
 
   .filterItem__listItems {
-    overflow-y:scroll;
+    overflow-y: auto;
     max-width: 180px;
     max-height: 237px;
   }
+
   .filterItem__listItems::-webkit-scrollbar {
     width: 4px;
   }
