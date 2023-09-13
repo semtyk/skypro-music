@@ -38,6 +38,7 @@
     width: 356px;
     height: 19px;
     background-color: #313131;
+    animation: myAnim 5s ease 0s 1 normal forwards;
   }
   
   .track__title-image {
@@ -93,6 +94,7 @@
   .track__author_unvis {
     height: 19px;
     background-color:#313131;
+    animation: myAnim 5s ease 0s 1 normal forwards;
   }
   
   .track__author-link {
@@ -111,6 +113,7 @@
   .track__album_unvis {
     height: 19px;
     background-color: #313131;
+    animation: myAnim 5s ease 0s 1 normal forwards;
   }
   
   .track__album-link {
@@ -137,3 +140,17 @@
     text-align: right;
     color: #696969;
   }  
+
+
+  @keyframes myAnim {
+    0%,
+    50%,
+    100% {
+      opacity: 1;
+    }
+  
+    25%,
+    75% {
+      opacity: 0;
+    }
+  }

@@ -13,7 +13,7 @@ export default function SideBar({unvisible}) {
           </div>
           <div className="sidebar__block">
             <div className="sidebar__list">
-              <div className="sidebar__item">
+              <div className={`sidebar__item ${unvisible && 'sidebar__item_unvis'}`}>
                 <a className="sidebar__link" href="/#">
                   {!unvisible && <img
                     className="sidebar__img"
@@ -22,7 +22,7 @@ export default function SideBar({unvisible}) {
                   />}
                 </a>
               </div>
-              <div className="sidebar__item">
+              <div className={`sidebar__item ${unvisible && 'sidebar__item_unvis'}`}>
                 <a className="sidebar__link" href="/#">
                   {!unvisible && <img
                     className="sidebar__img"
@@ -31,7 +31,7 @@ export default function SideBar({unvisible}) {
                   />}
                 </a>
               </div>
-              <div className="sidebar__item">
+              <div className={`sidebar__item ${unvisible && 'sidebar__item_unvis'}`}>
                 <a className="sidebar__link" href="/#">
                   {!unvisible && <img
                     className="sidebar__img"

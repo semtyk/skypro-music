@@ -207,6 +207,7 @@
     background-color: #313131;
     height: 15px;
     width: 59px;
+    animation: myAnim 5s ease 0s 1 normal forwards;
   }
   
   .track-play__author-link {
