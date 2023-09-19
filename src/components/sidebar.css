@@ -68,7 +68,13 @@
   .sidebar__item {
     width: 250px;
     height: 150px;
+    background-color: #313131;
   }
+
+  .sidebar__item_unvis {
+    animation: myAnim 5s ease 0s 1 normal forwards;
+  }
+
   
   .sidebar__item:not(:last-child) {
     margin-bottom: 30px;

@@ -1,6 +1,6 @@
 import './audioplayer.css'
 
-export default function AudioPlayer() {
+export default function AudioPlayer({unvisible}) {
     return (
         <div className="bar">
         <div className="bar__content">
@@ -37,19 +37,19 @@ export default function AudioPlayer() {
               <div className="player__track-play track-play">
                 <div className="track-play__contain">
                   <div className="track-play__image">
-                    <svg className="track-play__svg" alt="music">
+                    {!unvisible && <svg className="track-play__svg" alt="music">
                       <use xlinkHref="img/icon/sprite.svg#icon-note" />
-                    </svg>
+                    </svg>}
                   </div>
-                  <div className="track-play__author">
-                    <a className="track-play__author-link" href="http://">
+                  <div className={`track-play__author ${unvisible ? 'track-play__author-unvis' : ''}`}>
+                    {!unvisible && <a className="track-play__author-link" href="http://">
                       Ты та...
-                    </a>
+                    </a>}
                   </div>
-                  <div className="track-play__album">
-                    <a className="track-play__album-link" href="http://">
+                  <div className={`track-play__album ${unvisible ? 'track-play__album-unvis' : ''}`}>
+                    {!unvisible && <a className="track-play__album-link" href="http://">
                       Баста
-                    </a>
+                    </a>}
                   </div>
                 </div>
                 <div className="track-play__like-dis">
