@@ -1,6 +1,8 @@
 
+
 import './audioplayer.css'
 import * as S from './styled.audioplayer'
+
 
 
 export default function AudioPlayer({unvisible}) {
@@ -37,24 +39,24 @@ export default function AudioPlayer({unvisible}) {
                   </S.PlayerBtnShuffleSvg>
                 </S.PlayerBtnShuffle>
               </S.PlayerControls>
-              <div className="player__track-play track-play">
-                <div className="track-play__contain">
-                  <div className="track-play__image">
-                    {!unvisible && <svg className="track-play__svg" alt="music">
+              <S.PlayedTrack>
+                <S.PlayedTrackContain>
+                  <S.PlayedTrackImage>
+                    {!unvisible && <S.PlayedTrackSvg alt="music">
                       <use xlinkHref="img/icon/sprite.svg#icon-note" />
-                    </svg>}
-                  </div>
-                  <div className={`track-play__author ${unvisible ? 'track-play__author-unvis' : ''}`}>
-                    {!unvisible && <a className="track-play__author-link" href="http://">
+                    </S.PlayedTrackSvg>}
+                  </S.PlayedTrackImage>
+                  <S.PlayedTrackAlbum unvisible={unvisible}>
+                    {!unvisible && <S.PlayedTrackAlbumLink href="http://">
                       Ты та...
-                    </a>}
-                  </div>
-                  <div className={`track-play__album ${unvisible ? 'track-play__album-unvis' : ''}`}>
-                    {!unvisible && <a className="track-play__album-link" href="http://">
+                    </S.PlayedTrackAlbumLink>}
+                  </S.PlayedTrackAlbum>
+                  <S.PlayedTrackAuthor unvisible={unvisible}>
+                    {!unvisible && <S.PlayedTrackAuthorLink href="http://">
                       Баста
-                    </a>}
-                  </div>
-                </div>
+                    </S.PlayedTrackAuthorLink>}
+                  </S.PlayedTrackAuthor>
+                </S.PlayedTrackContain>
                 <div className="track-play__like-dis">
                   <div className="track-play__like _btn-icon">
                     <svg className="track-play__like-svg" alt="like">
@@ -67,7 +69,7 @@ export default function AudioPlayer({unvisible}) {
                     </svg>
                   </div>
                 </div>
-              </div>
+              </S.PlayedTrack>
             </S.BarPlayer>
             <S.BarVolumeBlock>
               <div className="volume__content">

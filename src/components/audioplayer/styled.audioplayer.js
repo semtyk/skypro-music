@@ -1,5 +1,17 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import styled, { css } from 'styled-components';
+import styled, { css,keyframes } from 'styled-components';
+
+const myAnim = keyframes`
+    0%,
+    50%,
+    100% {
+      opacity: 1;
+    }
+    25%,
+    75% {
+      opacity: 0;
+    }
+    `;
 
 export const Bar = styled.div`
      position: absolute;
@@ -143,6 +155,121 @@ export const PlayerBtnRepeatSvg = styled.svg`
 export const PlayerBtnShuffleSvg = styled(PlayerBtnRepeatSvg)`
     width: 19px;
 `;
+
+export const PlayedTrack = styled.div`
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+`;
+
+export const PlayedTrackContain = styled.div`
+    width: auto;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto 1fr;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "image album" "image author";
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+`;
+
+export const PlayedTrackImage = styled.div`
+    width: 51px;
+    height: 51px;
+    background-color: #313131;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-right: 12px;
+    grid-row: 1;
+    -ms-grid-row-span: 2;
+    grid-column: 1;
+    grid-area: image;
+`;
+
+export const PlayedTrackSvg = styled.svg`
+    width: 18px;
+    height: 17px;
+    fill: transparent;
+    stroke: #4e4e4e;
+`;
+
+const animationMixin = () => css`
+    ${myAnim} 5s ease 0s 1 normal forwards;
+`;
+const PlayedTrackUnvisMixin = css`
+    background-color: #313131;
+    height: 15px;
+    width: 59px; 
+    animation: ${animationMixin};
+`;
+
+export const PlayedTrackAuthor = styled.div`
+    grid-row: 2;
+    grid-column: 2;
+    grid-area: author;
+    min-width: 49px;
+    ${(props) =>
+        { if (props.unvisible) {
+            return css`${PlayedTrackUnvisMixin}`;
+        } 
+        return css``;
+        }};
+`;
+
+export const PlayedTrackAlbum = styled(PlayedTrackAuthor)`
+    grid-row: 1;    
+    grid-area: album;
+`;
+
+export const PlayedTrackAuthorLink = styled.a`
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 24px;
+    color: #ffffff;
+`;
+
+export const PlayedTrackAlbumLink = styled(PlayedTrackAuthorLink)`
+    font-size: 16px;
+    white-space: nowrap;
+`;
+
+// ---ещё один способ задать анимацию с миксинами 
+
+// const PlayedTrackAuthorUnvisMixin = (props) => {
+//     if (props.unvisible) {
+//       return css`
+//      background-color: #313131;
+//      height: 15px;
+//      width: 59px; 
+//      animation: ${animationMixin};
+//       `;
+//     }
+//     return css``;
+//   };
+
+// export const PlayedTrackAuthor = styled.div`
+//     grid-row: 1;
+//     grid-column: 2;
+//     grid-area: author;
+//     min-width: 49px;
+//     ${PlayedTrackAuthorUnvisMixin};
+// `;
+
+
+
 
 
 
