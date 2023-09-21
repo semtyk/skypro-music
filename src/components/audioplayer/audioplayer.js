@@ -1,9 +1,4 @@
-
-
-import './audioplayer.css'
 import * as S from './styled.audioplayer'
-
-
 
 export default function AudioPlayer({unvisible}) {
     return (
@@ -57,35 +52,34 @@ export default function AudioPlayer({unvisible}) {
                     </S.PlayedTrackAuthorLink>}
                   </S.PlayedTrackAuthor>
                 </S.PlayedTrackContain>
-                <div className="track-play__like-dis">
-                  <div className="track-play__like _btn-icon">
-                    <svg className="track-play__like-svg" alt="like">
+                <S.PlayedTrackLikeDis>
+                  <S.PlayedTrackLike>
+                    <S.PlayedTrackLikeSvg alt="like">
                       <use xlinkHref="img/icon/sprite.svg#icon-like" />
-                    </svg>
-                  </div>
-                  <div className="track-play__dislike _btn-icon">
-                    <svg className="track-play__dislike-svg" alt="dislike">
+                    </S.PlayedTrackLikeSvg>
+                  </S.PlayedTrackLike>
+                  <S.PlayedTrackDislike>
+                    <S.PlayedTrackDislikeSvg alt="dislike">
                       <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
-                    </svg>
-                  </div>
-                </div>
+                    </S.PlayedTrackDislikeSvg>
+                  </S.PlayedTrackDislike>
+                </S.PlayedTrackLikeDis>
               </S.PlayedTrack>
             </S.BarPlayer>
             <S.BarVolumeBlock>
-              <div className="volume__content">
-                <div className="volume__image">
-                  <svg className="volume__svg" alt="volume">
+              <S.VolumeContent>
+                <S.VolumeImage>
+                  <S.VolumeSvg alt="volume">
                     <use xlinkHref="img/icon/sprite.svg#icon-volume" />
-                  </svg>
-                </div>
-                <div className="volume__progress _btn">
-                  <input
-                    className="volume__progress-line _btn"
+                  </S.VolumeSvg>
+                </S.VolumeImage>
+                <S.VolumeProgress>
+                  <S.VolumeProgressLine
                     type="range"
                     name="range"
                   />
-                </div>
-              </div>
+                </S.VolumeProgress>
+              </S.VolumeContent>
             </S.BarVolumeBlock>
           </S.BarPlayerBlock>
         </S.BarContent>

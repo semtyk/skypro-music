@@ -268,7 +268,89 @@ export const PlayedTrackAlbumLink = styled(PlayedTrackAuthorLink)`
 //     ${PlayedTrackAuthorUnvisMixin};
 // `;
 
+export const PlayedTrackLikeDis = styled.div`
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 26%;
+`;
 
+const BtnLikeDislike = styled.button`
+    background: transparent;
+    border: transparent;
+    &:active svg {
+        fill: #696969;
+        stroke: #ffffff;
+        cursor: pointer;
+    };
+    &:hover svg {
+        fill: transparent;
+        stroke: #acacac;
+        cursor: pointer;
+    };
+`;
+
+export const PlayedTrackLike = styled(BtnLikeDislike)`
+    padding: 5px;
+`;
+
+export const PlayedTrackLikeSvg = styled.svg`
+    width: 14px;
+    height: 12px;
+    fill: transparent;
+    stroke: #696969;
+`;
+
+export const PlayedTrackDislike = styled(PlayedTrackLike)`
+    margin-left: 28.5px;
+`;
+export const PlayedTrackDislikeSvg = styled(PlayedTrackLikeSvg)`
+`;
+
+export const VolumeContent = styled.div`
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+`;
+
+export const VolumeImage = styled.div`
+    width: 13px;
+    height: 18px;
+    margin-right: 17px;
+`;
+
+export const VolumeProgress = styled.div`
+    width: 109px;
+    cursor: pointer;
+`;
+
+export const VolumeSvg = styled.svg`
+    width: 13px;
+    height: 18px;
+    fill: transparent;
+`;
+
+export const VolumeProgressLine = styled.input`
+    width: 109px;
+    cursor: pointer;
+`;
 
 
 
