@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import SearchPannel from '../centerblock-search/centerblock-search'
-import TrackList, { arrOfTracks,arrOfGenre,arrOfYear } from '../tracklist'
+import TrackList, { arrOfTracks,arrOfGenre,arrOfYear } from '../tracklist/tracklist'
 import * as S from './styled.centerblock'
 
 function FilterItem(props) {

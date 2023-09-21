@@ -1,10 +1,15 @@
-.playlist__item {
+// eslint-disable-next-line import/no-extraneous-dependencies
+import styled, {css} from 'styled-components';
+import { animationMixin } from '../audioplayer/styled.audioplayer';
+// { css,keyframes }
+
+export const PlaylistItem = styled.div`
     width: 100%;
     display: block;
     margin-bottom: 12px;
-  }
+`;
 
-  .playlist__track {
+export const PlaylistTrack = styled.div`
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -18,9 +23,9 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-  }
-  
-  .track__title {
+`;
+
+export const TrackTitle = styled.div`
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -32,16 +37,9 @@
     -ms-flex-align: center;
     align-items: center;
     width: 447px;
-  }
+`;
 
-  .track__title-text_unvis {
-    width: 356px;
-    height: 19px;
-    background-color: #313131;
-    animation: myAnim 5s ease 0s 1 normal forwards;
-  }
-  
-  .track__title-image {
+export const TrackTitleImage = styled.div`
     width: 51px;
     height: 51px;
     padding: 16px;
@@ -56,32 +54,57 @@
     -ms-flex-pack: center;
     justify-content: center;
     margin-right: 17px;
-  }
-  
-  .track__title-svg {
+`;
+
+export const TrackTitleSvg = styled.svg`
     width: 18px;
     height: 17px;
     fill: transparent;
     stroke: #4e4e4e;
-  }
-  
-  .track__title-link {
+`;
+
+export const TrackTitleLink = styled.a`
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     color: #ffffff;
-  }
-  
-  .track__title-span {
+`;
+
+export const TrackTitleLSpan = styled.span`
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 16px;s
     line-height: 24px;
     color: #4e4e4e;
-  }
-  
-  .track__author {
+`;
+
+const  AnimationProperty = css`
+    animation: ${animationMixin};
+`;
+const TrackTitleTextUnvisMixin = css`
+    width: 356px;
+    height: 19px;
+    background-color: #313131; 
+    ${AnimationProperty}
+`;
+
+export const TrackTitleText = styled.div`
+    ${(props) =>
+        { if (props.unvisible) {
+            return css`${TrackTitleTextUnvisMixin}`;
+        } 
+        return css``;
+        }};
+`;
+
+const TrackAuthorUnvisMixin = css`
+    height: 19px;
+    background-color:#313131;
+    ${AnimationProperty}
+`;
+
+export const TrackAuthor = styled.div`
     width: 321px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -89,68 +112,63 @@
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
-  }
+    ${(props) =>
+        { if (props.unvisible) {
+            return css`${TrackAuthorUnvisMixin}`;
+        } 
+        return css``;
+        }};
+`;
 
-  .track__author_unvis {
-    height: 19px;
-    background-color:#313131;
-    animation: myAnim 5s ease 0s 1 normal forwards;
-  }
-  
-  .track__author-link {
+export const TrackAuthorLink = styled.a`
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     color: #ffffff;
-    text-align: left;
-  }
+    text-align: left;    
+`;
 
-  .track__album {
-    width: 245px;
-  }
-
-  .track__album_unvis {
+const TrackAlbumUnvisMixin = css`
     height: 19px;
     background-color: #313131;
-    animation: myAnim 5s ease 0s 1 normal forwards;
-  }
-  
-  .track__album-link {
+    ${AnimationProperty}
+`;
+
+export const TrackAlbum = styled.div`
+    width: 245px;
+    ${(props) =>
+        { if (props.unvisible) {
+            return css`${TrackAlbumUnvisMixin}`;
+        } 
+        return css``;
+        }};
+`;
+
+export const TrackAlbumLink = styled.a`
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #696969;
-  }
-  
-  .track__time-svg {
+    color: #696969;    
+`;
+
+export const TrackTimeSvg = styled.svg`
     width: 14px;
     height: 12px;
     margin-right: 17px;
     fill: transparent;
-    stroke: #696969;
-  }
-  
-  .track__time-text {
+    stroke: #696969;   
+`;
+
+export const TrackTimeText = styled.span`
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     text-align: right;
     color: #696969;
-  }  
+`;
 
 
-  @keyframes myAnim {
-    0%,
-    50%,
-    100% {
-      opacity: 1;
-    }
-  
-    25%,
-    75% {
-      opacity: 0;
-    }
-  }
+
