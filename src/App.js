@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import AudioPlayer from './components/audioplayer/audioplayer';
-import CenterBlock from './components/centerblock';
+import CenterBlock from './components/centerblock/centerblock';
 import NavMenu from './components/navmenu';
 import SideBar from './components/sidebar';
 
