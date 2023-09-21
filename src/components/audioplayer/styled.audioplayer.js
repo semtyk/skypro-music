@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import styled, { css,keyframes } from 'styled-components';
 
-const myAnim = keyframes`
+export const myAnim = keyframes`
     0%,
     50%,
     100% {
@@ -205,7 +205,7 @@ export const PlayedTrackSvg = styled.svg`
     stroke: #4e4e4e;
 `;
 
-const animationMixin = () => css`
+export const animationMixin = () => css`
     ${myAnim} 5s ease 0s 1 normal forwards;
 `;
 const PlayedTrackUnvisMixin = css`
