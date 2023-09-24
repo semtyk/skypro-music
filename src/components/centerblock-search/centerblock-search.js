@@ -1,17 +1,16 @@
-import './centerblock-search.css'
+import * as S from './search.styled'
 
 export default function SearchPannel () {
     return (
-        <div className="centerblock__search search">
-            <svg className="search__svg">
+        <S.SearchBlock>
+            <S.SearchBlockSvg>
               <use xlinkHref="img/icon/sprite.svg#icon-search" />
-            </svg>
-            <input
-              className="search__text"
+            </S.SearchBlockSvg>
+            <S.SearchText
               type="search"
               placeholder="Поиск"
               name="search"
             />
-          </div>
+          </S.SearchBlock>
     )
 }
