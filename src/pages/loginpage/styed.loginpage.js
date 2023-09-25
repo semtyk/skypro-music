@@ -165,3 +165,47 @@ export const ModalBtnSignup = styled.button`
       };
 `;
 
+export const ModalBtnSignupEnt = styled.button`
+    width: 278px;
+    height: 62px;
+    background-color: #580EA2;
+    border-radius: 6px;
+    margin-left: 4px;
+    border: none;
+    margin-top: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;  
+    & a {
+        width: 100%;
+        height: 100%;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: -0.05px;
+        color: #FFFFFF;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    };
+    &:hover {
+        background-color: #3F007D;
+      };
+    &:active {
+        background-color: #271A58;
+      };
+`;
+

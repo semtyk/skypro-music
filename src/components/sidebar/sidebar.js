@@ -1,6 +1,6 @@
 import * as S from './styled.sidebar'
 
-export default function SideBar({unvisible}) {
+export default function SideBar({unvisible, isSidebarCatVisible}) {
     return (
         <S.MainSidebar>
           <S.SidebarPersonal>
@@ -11,7 +11,8 @@ export default function SideBar({unvisible}) {
               </svg>
             </S.SideBarIcon>
           </S.SidebarPersonal>
-          <S.SideBarBlock>
+          {isSidebarCatVisible && 
+          (<S.SideBarBlock>
             <S.SidebarList>
               <S.SideBarItem unvisible={unvisible}>
                 <S.SideBarLink href="/#">
@@ -38,7 +39,8 @@ export default function SideBar({unvisible}) {
                 </S.SideBarLink>
               </S.SideBarItem>
             </S.SidebarList>
-          </S.SideBarBlock>
+          </S.SideBarBlock>)}
+          
         </S.MainSidebar>
     )
 }

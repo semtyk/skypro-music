@@ -40,13 +40,14 @@ export default function CenterBlock(props) {
     return (
         <S.MainCenterblock>
           <SearchPannel />
-          <S.CenterblockHeadTitle>Треки</S.CenterblockHeadTitle>
-          <S.CenterblockFilter>
+          <S.CenterblockHeadTitle>{props.playListName}</S.CenterblockHeadTitle>
+          {props.isFilterVisible && 
+          (<S.CenterblockFilter>
             <S.FilterTitle>Искать по:</S.FilterTitle>
             <FilterItem title='исполнителю' listItems={listPerformer} onShow={clbSetActiveIndex(1)} isActive={activeIndex===1}/>
             <FilterItem title='году выпуска' listItems={listGenre} onShow={clbSetActiveIndex(2)} isActive={activeIndex===2}/>
             <FilterItem title='жанру' listItems={listYear} onShow={clbSetActiveIndex(3)} isActive={activeIndex===3}/>
-          </S.CenterblockFilter>
+          </S.CenterblockFilter>)}
           <S.CenterBlockContent>
             <S.ContentTitle>
               <S.ContentTitleCol01>Трек</S.ContentTitleCol01>

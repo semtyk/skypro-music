@@ -5,7 +5,7 @@ import NavMenu from '../../components/navmenu/navmenu';
 import SideBar from '../../components/sidebar/sidebar';
 import * as S from '../../components/styledApp/styled.app'
 
-export default function MainPage() {
+export default function FavoritePage() {
     const [isSkeleton, setIsSkeleton] = useState(true);
 
     useEffect(()=> {
@@ -23,8 +23,8 @@ export default function MainPage() {
     <S.Container>
     <S.Main>
         <NavMenu />
-        <CenterBlock isSkeleton = {isSkeleton} isFilterVisible playListName = 'Треки'/>
-        <SideBar unvisible = {isSkeleton} isSidebarCatVisible/>
+        <CenterBlock isSkeleton = {isSkeleton} isFilterVisible = {false} playListName = 'Мои треки'/>
+        <SideBar unvisible = {isSkeleton} isSidebarCatVisible = {false}/>
     </S.Main>
     <AudioPlayer unvisible = {isSkeleton}/>
     <footer />
