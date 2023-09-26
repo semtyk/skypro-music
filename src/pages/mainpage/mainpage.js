@@ -4,6 +4,7 @@ import CenterBlock from '../../components/centerblock/centerblock';
 import NavMenu from '../../components/navmenu/navmenu';
 import SideBar from '../../components/sidebar/sidebar';
 import * as S from '../../components/styledApp/styled.app'
+import { arrOfAllTracks } from '../../constants';
 
 export default function MainPage() {
     const [isSkeleton, setIsSkeleton] = useState(true);
@@ -11,7 +12,7 @@ export default function MainPage() {
     useEffect(()=> {
       const timerId = setTimeout(() => {
         setIsSkeleton(!isSkeleton);
-      }, 5000);
+      }, 500);
       
       return () => {
         clearTimeout(timerId);
@@ -23,7 +24,7 @@ export default function MainPage() {
     <S.Container>
     <S.Main>
         <NavMenu />
-        <CenterBlock isSkeleton = {isSkeleton} isFilterVisible playListName = 'Треки'/>
+        <CenterBlock isSkeleton = {isSkeleton} isFilterVisible playListName = 'Треки' arrOfTracks = {arrOfAllTracks}/>
         <SideBar unvisible = {isSkeleton} isSidebarCatVisible/>
     </S.Main>
     <AudioPlayer unvisible = {isSkeleton}/>

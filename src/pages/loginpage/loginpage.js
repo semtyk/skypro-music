@@ -1,16 +1,17 @@
+import { Link } from 'react-router-dom';
 import * as S from './styed.loginpage'
 
-export default function LoginPage() {
-    return (
+function LoginPageComp({isRegistredMode}) {
+  return (
     <S.Wrapper>
       <S.EnterContainer>
         <S.ModalBlock>
           <S.FormModalLogin action="#">
-            <a href="../">
+            <Link to="/">
               <S.ModalLogo>
                 <img src="../img/logo_modal.png" alt="logo" />
               </S.ModalLogo>
-            </a>
+            </Link>
             <S.ModalInputLogin
               type="text"
               name="login"
@@ -21,17 +22,69 @@ export default function LoginPage() {
               name="password"
               placeholder="Пароль"
             />
-            <S.ModalBtnEnter>
-              <a href="../index.html">Войти</a>
-            </S.ModalBtnEnter>
-            <S.ModalBtnSignup>
-              <a href="signup.html">Зарегистрироваться</a>
-            </S.ModalBtnSignup>
+            {isRegistredMode && (<S.ModalInputPswrd
+              type="password"
+              name="password"
+              placeholder="Повторите пароль"
+            />)}
+            {!isRegistredMode && (
+              <S.ModalBtnEnter>
+              <Link to="/">Войти</Link>
+            </S.ModalBtnEnter>)}
+            {!isRegistredMode && (<S.ModalBtnSignup>
+              <Link to="/signup">Зарегистрироваться</Link>
+            </S.ModalBtnSignup>)}
+
+            {isRegistredMode && (<S.ModalBtnSignupEnt>
+              <Link to="/">Зарегистрироваться</Link>
+            </S.ModalBtnSignupEnt>)}
+
           </S.FormModalLogin>
         </S.ModalBlock>
       </S.EnterContainer>
     </S.Wrapper>
     );
+};
+
+export default function LoginPage() {
+    return (
+      <LoginPageComp isRegistredMode={false}/>
+    );
+    // return (
+    // <S.Wrapper>
+    //   <S.EnterContainer>
+    //     <S.ModalBlock>
+    //       <S.FormModalLogin action="#">
+    //         <a href="../">
+    //           <S.ModalLogo>
+    //             <img src="../img/logo_modal.png" alt="logo" />
+    //           </S.ModalLogo>
+    //         </a>
+    //         <S.ModalInputLogin
+    //           type="text"
+    //           name="login"
+    //           placeholder="Почта"
+    //         />
+    //         <S.ModalInputPswrd
+    //           type="password"
+    //           name="password"
+    //           placeholder="Пароль"
+    //         />
+    //         <S.ModalBtnEnter>
+    //           <a href="../index.html">Войти</a>
+    //         </S.ModalBtnEnter>
+    //         <S.ModalBtnSignup>
+    //           <a href="signup.html">Зарегистрироваться</a>
+    //         </S.ModalBtnSignup>
+    //       </S.FormModalLogin>
+    //     </S.ModalBlock>
+    //   </S.EnterContainer>
+    // </S.Wrapper>
+    // );
 }
+
+export {LoginPageComp}
+
+
 
     

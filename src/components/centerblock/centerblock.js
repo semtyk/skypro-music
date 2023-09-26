@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import SearchPannel from '../centerblock-search/centerblock-search'
-import TrackList, { arrOfTracks,arrOfGenre,arrOfYear } from '../tracklist/tracklist'
+import TrackList from '../tracklist/tracklist'
 import * as S from './styled.centerblock'
+import { arrOfGenre, arrOfYear } from '../../constants'
 
 function FilterItem(props) {
 
@@ -33,7 +34,7 @@ export default function CenterBlock(props) {
       }
     }
 
-    const listPerformer = arrOfTracks.map((item)=><li>{item.author}</li>);
+    const listPerformer = props.arrOfTracks.map((item)=><li>{item.author}</li>);
     const listGenre = arrOfGenre.map((item)=><li>{item}</li>);
     const listYear = arrOfYear.map((item)=><li>{item}</li>);
 
@@ -55,11 +56,11 @@ export default function CenterBlock(props) {
               <S.ContentTitleCol03>АЛЬБОМ</S.ContentTitleCol03>
               <S.ContentTitleCol04>
                 <S.ContentTitleSvg alt="time">
-                  <use xlinkHref="img/icon/sprite.svg#icon-watch" />
+                  <use xlinkHref="/img/icon/sprite.svg#icon-watch" />
                 </S.ContentTitleSvg>
               </S.ContentTitleCol04>
             </S.ContentTitle>
-            <TrackList unvisible = {props.isSkeleton}/>
+            <TrackList unvisible = {props.isSkeleton} arrOfTracks = {props.arrOfTracks}/>
           </S.CenterBlockContent>
         </S.MainCenterblock>
     )

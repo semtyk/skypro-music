@@ -10,27 +10,27 @@ export default function AudioPlayer({unvisible}) {
               <S.PlayerControls>
                 <S.PlayerBtnPrev>
                   <S.PlayerBtnPrevSvg alt="prev">
-                    <use xlinkHref="img/icon/sprite.svg#icon-prev" />
+                    <use xlinkHref="/img/icon/sprite.svg#icon-prev" />
                   </S.PlayerBtnPrevSvg>
                 </S.PlayerBtnPrev>
                 <S.PlayerBtnPlay>
                   <S.PlayerBtnPlaySvg alt="play">
-                    <use xlinkHref="img/icon/sprite.svg#icon-play" />
+                    <use xlinkHref="/img/icon/sprite.svg#icon-play" />
                   </S.PlayerBtnPlaySvg>
                 </S.PlayerBtnPlay>
                 <S.PlayerBtnNext>
                   <S.PlayerBtnNextSvg alt="next">
-                    <use xlinkHref="img/icon/sprite.svg#icon-next" />
+                    <use xlinkHref="/img/icon/sprite.svg#icon-next" />
                   </S.PlayerBtnNextSvg>
                 </S.PlayerBtnNext>
                 <S.PlayerBtnRepeat>
                   <S.PlayerBtnRepeatSvg alt="repeat">
-                    <use xlinkHref="img/icon/sprite.svg#icon-repeat" />
+                    <use xlinkHref="/img/icon/sprite.svg#icon-repeat" />
                   </S.PlayerBtnRepeatSvg>
                 </S.PlayerBtnRepeat>
                 <S.PlayerBtnShuffle>
                   <S.PlayerBtnShuffleSvg alt="shuffle">
-                    <use xlinkHref="img/icon/sprite.svg#icon-shuffle" />
+                    <use xlinkHref="/img/icon/sprite.svg#icon-shuffle" />
                   </S.PlayerBtnShuffleSvg>
                 </S.PlayerBtnShuffle>
               </S.PlayerControls>
@@ -38,7 +38,7 @@ export default function AudioPlayer({unvisible}) {
                 <S.PlayedTrackContain>
                   <S.PlayedTrackImage>
                     {!unvisible && <S.PlayedTrackSvg alt="music">
-                      <use xlinkHref="img/icon/sprite.svg#icon-note" />
+                      <use xlinkHref="/img/icon/sprite.svg#icon-note" />
                     </S.PlayedTrackSvg>}
                   </S.PlayedTrackImage>
                   <S.PlayedTrackAlbum unvisible={unvisible}>
@@ -55,12 +55,12 @@ export default function AudioPlayer({unvisible}) {
                 <S.PlayedTrackLikeDis>
                   <S.PlayedTrackLike>
                     <S.PlayedTrackLikeSvg alt="like">
-                      <use xlinkHref="img/icon/sprite.svg#icon-like" />
+                      <use xlinkHref="/img/icon/sprite.svg#icon-like" />
                     </S.PlayedTrackLikeSvg>
                   </S.PlayedTrackLike>
                   <S.PlayedTrackDislike>
                     <S.PlayedTrackDislikeSvg alt="dislike">
-                      <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
+                      <use xlinkHref="/img/icon/sprite.svg#icon-dislike" />
                     </S.PlayedTrackDislikeSvg>
                   </S.PlayedTrackDislike>
                 </S.PlayedTrackLikeDis>
@@ -70,7 +70,7 @@ export default function AudioPlayer({unvisible}) {
               <S.VolumeContent>
                 <S.VolumeImage>
                   <S.VolumeSvg alt="volume">
-                    <use xlinkHref="img/icon/sprite.svg#icon-volume" />
+                    <use xlinkHref="/img/icon/sprite.svg#icon-volume" />
                   </S.VolumeSvg>
                 </S.VolumeImage>
                 <S.VolumeProgress>

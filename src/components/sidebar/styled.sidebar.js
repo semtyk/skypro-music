@@ -1,7 +1,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import styled, { css } from 'styled-components';
 // { css,keyframes }
+import { Link } from 'react-router-dom';
 import { animationMixin } from '../audioplayer/styled.audioplayer';
+
 
 export const MainSidebar = styled.div`
     max-width: 418px;
@@ -88,7 +90,7 @@ export const SideBarItem = styled.div`
     ${SideBarUnvisMixin};
 `;
 
-export const SideBarLink = styled.a`
+export const SideBarLink = styled(Link)`
     width: 100%;
     height: 100%;
 `;

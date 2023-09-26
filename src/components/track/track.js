@@ -7,7 +7,7 @@ export default function Track(props) {
                   <S.TrackTitle>
                     <S.TrackTitleImage>
                       {!props.unvisible && <S.TrackTitleSvg alt="music">
-                        <use xlinkHref="img/icon/sprite.svg#icon-note" />
+                        <use xlinkHref="/img/icon/sprite.svg#icon-note" />
                       </S.TrackTitleSvg>}
                     </S.TrackTitleImage>
                     <S.TrackTitleText unvisible={props.unvisible}>
@@ -29,7 +29,7 @@ export default function Track(props) {
                   </S.TrackAlbum>
                   <div>
                     <S.TrackTimeSvg alt="time">
-                      <use xlinkHref="img/icon/sprite.svg#icon-like" />
+                      <use xlinkHref="/img/icon/sprite.svg#icon-like" />
                     </S.TrackTimeSvg>
                     <S.TrackTimeText>{props.unvisible ? '0:00' : props.time}</S.TrackTimeText>
                   </div>
