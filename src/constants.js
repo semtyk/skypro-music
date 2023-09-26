@@ -63,6 +63,22 @@ export const arrOfAllTracks = [
     },
 ]
 
+export const arrOfFavoriteTracks = [
+    {
+        title: 'Lose Yourself',
+        author: 'Eminem',
+        album: 'Curtain Call',
+        time: '5:20',
+    },
+    {
+        title: 'Eyes on Fire',
+        additionTitle: '(Zeds Dead Remix)',
+        author: 'Blue Foundation, Zeds Dead',
+        album: 'Eyes on Fire',
+        time: '5:20',
+    },
+]
+
 export const arrOfSelection = [
     {
         id: 1,

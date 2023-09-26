@@ -158,7 +158,17 @@ export const TrackTimeSvg = styled.svg`
     height: 12px;
     margin-right: 17px;
     fill: transparent;
-    stroke: #696969;   
+    stroke: #696969;
+    &:active {
+        fill: #696969;
+        stroke: #ffffff;
+        cursor: pointer;
+    };
+    &:hover {
+        fill: transparent;
+        stroke: #acacac;
+        cursor: pointer;
+    };   
 `;
 
 export const TrackTimeText = styled.span`
