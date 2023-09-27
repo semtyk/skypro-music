@@ -6,7 +6,7 @@ import SideBar from '../../components/sidebar/sidebar';
 import * as S from '../../components/styledApp/styled.app'
 import { arrOfAllTracks } from '../../constants';
 
-export default function MainPage() {
+export default function MainPage({handleLogout}) {
     const [isSkeleton, setIsSkeleton] = useState(true);
 
     useEffect(()=> {
@@ -23,7 +23,7 @@ export default function MainPage() {
 <S.Wrapper>
     <S.Container>
     <S.Main>
-        <NavMenu />
+        <NavMenu handleLogout={handleLogout}/>
         <CenterBlock isSkeleton = {isSkeleton} isFilterVisible playListName = 'Треки' arrOfTracks = {arrOfAllTracks}/>
         <SideBar unvisible = {isSkeleton} isSidebarCatVisible/>
     </S.Main>

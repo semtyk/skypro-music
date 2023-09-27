@@ -4,15 +4,21 @@ import LoginPage from "./pages/loginpage/loginpage";
 import SignupPage from "./pages/signuppage/signuppage";
 import FavoritePage from "./pages/favoritepage/favoritepage";
 import Category from "./pages/category/category";
+import ProtectedRoute from "./protectroutes";
 
-export default function AppRoutes() {
+export default function AppRoutes(props) {
+
     return (
         <Routes>
-            <Route path='/' element={<MainPage />} />
-            <Route path='/signin' element={<LoginPage />} />
+            
+            <Route path='/signin' element={<LoginPage handleLogin={props.handleLogin}/>} />
             <Route path='/signup' element={<SignupPage />} />
-            <Route path='/favorites' element={<FavoritePage />} />
-            <Route path='/category/:id' element={<Category />} />
+            
+            <Route element={<ProtectedRoute isAllowed={Boolean(props.user)} />}>
+                <Route path='/' element={<MainPage handleLogout={props.handleLogout}/>} />
+                <Route path='/favorites' element={<FavoritePage />} />
+                <Route path='/category/:id' element={<Category />} />
+            </Route>
         </Routes>
 
     );

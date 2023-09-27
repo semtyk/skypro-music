@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import * as S from './styed.loginpage'
 
-function LoginPageComp({isRegistredMode}) {
+function LoginPageComp({isRegistredMode, handleLogin}) {
+  
   return (
     <S.Wrapper>
       <S.EnterContainer>
@@ -28,7 +29,7 @@ function LoginPageComp({isRegistredMode}) {
               placeholder="Повторите пароль"
             />)}
             {!isRegistredMode && (
-              <S.ModalBtnEnter>
+              <S.ModalBtnEnter onClick={handleLogin}>
               <Link to="/">Войти</Link>
             </S.ModalBtnEnter>)}
             {!isRegistredMode && (<S.ModalBtnSignup>
@@ -46,9 +47,9 @@ function LoginPageComp({isRegistredMode}) {
     );
 };
 
-export default function LoginPage() {
+export default function LoginPage({handleLogin}) {
     return (
-      <LoginPageComp isRegistredMode={false}/>
+      <LoginPageComp isRegistredMode={false} handleLogin={handleLogin}/>
     );
     // return (
     // <S.Wrapper>

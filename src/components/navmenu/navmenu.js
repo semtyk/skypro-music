@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import * as S from './styled.navmenu';
 
-export default function NavMenu() {
+export default function NavMenu({handleLogout}) {
     const [visible, setVisible] = useState(true);
     
     const handleClick = () => {
@@ -32,9 +32,9 @@ export default function NavMenu() {
                   Мой плейлист
                 </S.NavMenuItemLink>
               </S.NavMenuItem>
-              <S.NavMenuItem>
-                <S.NavMenuItemLink to="/signin">
-                  Войти
+              <S.NavMenuItem  onClick={handleLogout}>
+                <S.NavMenuItemLink to="/signin" >
+                  Выйти
                 </S.NavMenuItemLink>
               </S.NavMenuItem>
             </S.NavMenuList>
