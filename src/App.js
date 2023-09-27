@@ -15,7 +15,7 @@ function App() {
   const handleLogout = () => {
     setUser(null);
     localStorage.clear();
-    console.log(localStorage.getItem('user'));
+    // console.log(localStorage.getItem('user'));
   }
 
   return (

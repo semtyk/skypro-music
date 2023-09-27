@@ -5,6 +5,7 @@ import SignupPage from "./pages/signuppage/signuppage";
 import FavoritePage from "./pages/favoritepage/favoritepage";
 import Category from "./pages/category/category";
 import ProtectedRoute from "./protectroutes";
+import NotFoundPage from "./pages/notfound/notfound";
 
 export default function AppRoutes(props) {
 
@@ -19,6 +20,7 @@ export default function AppRoutes(props) {
                 <Route path='/favorites' element={<FavoritePage />} />
                 <Route path='/category/:id' element={<Category />} />
             </Route>
+            <Route path='*' element={<NotFoundPage />} />
         </Routes>
 
     );
