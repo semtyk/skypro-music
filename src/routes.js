@@ -7,16 +7,16 @@ import Category from "./pages/category/category";
 import ProtectedRoute from "./protectroutes";
 import NotFoundPage from "./pages/notfound/notfound";
 
-export default function AppRoutes(props) {
+export default function AppRoutes({handleLogin, user, handleLogout}) {
 
     return (
         <Routes>
             
-            <Route path='/signin' element={<LoginPage handleLogin={props.handleLogin}/>} />
+            <Route path='/signin' element={<LoginPage handleLogin={handleLogin}/>} />
             <Route path='/signup' element={<SignupPage />} />
             
-            <Route element={<ProtectedRoute isAllowed={Boolean(props.user)} />}>
-                <Route path='/' element={<MainPage handleLogout={props.handleLogout}/>} />
+            <Route element={<ProtectedRoute isAllowed={Boolean(user)} />}>
+                <Route path='/' element={<MainPage handleLogout={handleLogout}/>} />
                 <Route path='/favorites' element={<FavoritePage />} />
                 <Route path='/category/:id' element={<Category />} />
             </Route>

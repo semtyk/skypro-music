@@ -13,12 +13,12 @@ const ContentPlaylist = styled.div`
     overflow-y: auto;
 `;
 
-export default function TrackList(props) {
+export default function TrackList({arrOfTracks, unvisible}) {
  
     return (
         <ContentPlaylist>
-              {props.arrOfTracks.map((item) => <Track 
-                unvisible={props.unvisible} title={item.title} additionTitle={item.additionTitle} author={item.author}  album={item.album} time={item.time}
+              {arrOfTracks.map((item) => <Track 
+                unvisible={unvisible} title={item.title} additionTitle={item.additionTitle} author={item.author}  album={item.album} time={item.time}
               />)}
         </ContentPlaylist>
     )
