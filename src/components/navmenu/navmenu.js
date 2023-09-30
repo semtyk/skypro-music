@@ -1,18 +1,19 @@
 import { useState } from 'react';
+
 import * as S from './styled.navmenu';
 
-export default function NavMenu() {
+export default function NavMenu({handleLogout}) {
     const [visible, setVisible] = useState(true);
     
     const handleClick = () => {
       setVisible(!visible);
     }
 
- 
+   // "./img/logo.png"
     return (
         <S.MainNav>
           <S.NavLogo>
-            <S.NavLogoImg src="./img/logo.png" alt="logo" />
+            <S.NavLogoImg src='/img/logo.png' alt="logo" />
           </S.NavLogo>
           <S.NavBurger  onClick={handleClick}>
             <S.BurgerLine />
@@ -22,18 +23,18 @@ export default function NavMenu() {
           {visible && (<S.NavMenu>
             <S.NavMenuList>
               <S.NavMenuItem>
-                <S.NavMenuItemLink href='/#'>
+                <S.NavMenuItemLink to='/'>
                   Главное
                 </S.NavMenuItemLink>
               </S.NavMenuItem>
               <S.NavMenuItem>
-                <S.NavMenuItemLink href="/#">
+                <S.NavMenuItemLink to="/favorites">
                   Мой плейлист
                 </S.NavMenuItemLink>
               </S.NavMenuItem>
-              <S.NavMenuItem>
-                <S.NavMenuItemLink href="../signin.html">
-                  Войти
+              <S.NavMenuItem  onClick={handleLogout}>
+                <S.NavMenuItemLink to="/signin" >
+                  Выйти
                 </S.NavMenuItemLink>
               </S.NavMenuItem>
             </S.NavMenuList>

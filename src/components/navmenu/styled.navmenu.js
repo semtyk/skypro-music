@@ -1,4 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 // { css,keyframes }
 
@@ -63,7 +64,14 @@ export const NavMenuItem = styled.li`
 `;
 
 
-export const NavMenuItemLink = styled.a`
+// export const NavMenuItemLink = styled.a`
+//     color: #ffffff;
+//     font-weight: 400;
+//     font-size: 16px;
+//     line-height: 24px;
+// `;
+
+export const NavMenuItemLink = styled(NavLink)`
     color: #ffffff;
     font-weight: 400;
     font-size: 16px;
