@@ -1,6 +1,6 @@
 import * as S from './styled.audioplayer'
 
-export default function AudioPlayer({unvisible}) {
+export default function AudioPlayer({unvisible, currentTrack}) {
     return (
         <S.Bar>
         <S.BarContent>
@@ -43,12 +43,12 @@ export default function AudioPlayer({unvisible}) {
                   </S.PlayedTrackImage>
                   <S.PlayedTrackAlbum unvisible={unvisible}>
                     {!unvisible && <S.PlayedTrackAlbumLink href="http://">
-                      Ты та...
+                      {currentTrack.name}
                     </S.PlayedTrackAlbumLink>}
                   </S.PlayedTrackAlbum>
                   <S.PlayedTrackAuthor unvisible={unvisible}>
                     {!unvisible && <S.PlayedTrackAuthorLink href="http://">
-                      Баста
+                      {currentTrack.author}
                     </S.PlayedTrackAuthorLink>}
                   </S.PlayedTrackAuthor>
                 </S.PlayedTrackContain>

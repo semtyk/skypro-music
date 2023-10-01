@@ -21,7 +21,7 @@ function FilterItem({isActive, onShow, title, listItems}) {
 }
 
 
-export default function CenterBlock({arrOfTracks, playListName, isFilterVisible, isSkeleton, LoadTracksError}) {
+export default function CenterBlock({arrOfTracks, playListName, isFilterVisible, isSkeleton, LoadTracksError, setCurrentTrack}) {
   const [activeIndex, setActiveIndex] = useState(0);
 
     function clbSetActiveIndex(key) {
@@ -60,7 +60,8 @@ export default function CenterBlock({arrOfTracks, playListName, isFilterVisible,
                 </S.ContentTitleSvg>
               </S.ContentTitleCol04>
             </S.ContentTitle>
-            {LoadTracksError? `Не удалось загрузить плейлист,попробуйте позже:${LoadTracksError}`:<TrackList unvisible = {isSkeleton} arrOfTracks = {arrOfTracks}/>}
+            {LoadTracksError? `Не удалось загрузить плейлист,попробуйте позже:${LoadTracksError}`:<TrackList unvisible = {isSkeleton} arrOfTracks = {arrOfTracks}
+            setCurrentTrack={setCurrentTrack}/>}
           </S.CenterBlockContent>
         </S.MainCenterblock>
     )

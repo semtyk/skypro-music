@@ -16,9 +16,10 @@ export default function AppRoutes({handleLogin, user, handleLogout, tracks, isTr
             <Route path='/signup' element={<SignupPage />} />
             
             <Route element={<ProtectedRoute isAllowed={Boolean(user)} />}>
-                <Route path='/' element={<MainPage handleLogout={handleLogout} tracks={tracks} isTracksLoading={isTracksLoading} LoadTracksError={LoadTracksError}/>} />
-                <Route path='/favorites' element={<FavoritePage />} />
-                <Route path='/category/:id' element={<Category />} />
+                <Route path='/' element={<MainPage handleLogout={handleLogout} tracks={tracks} isTracksLoading={isTracksLoading} LoadTracksError={LoadTracksError}
+                />} />
+                <Route path='/favorites' element={<FavoritePage/>} />
+                <Route path='/category/:id' element={<Category/>} />
             </Route>
             <Route path='*' element={<NotFoundPage />} />
         </Routes>

@@ -13,12 +13,12 @@ const ContentPlaylist = styled.div`
     overflow-y: auto;
 `;
 
-export default function TrackList({arrOfTracks, unvisible}) {
+export default function TrackList({arrOfTracks, unvisible, setCurrentTrack}) {
     
     return (
         <ContentPlaylist>
               {arrOfTracks.map((item) => <Track 
-                unvisible={unvisible} title={item.name} additionTitle={item.additionTitle} author={item.author}  album={item.album} time={item.duration_in_seconds}
+                onNameClick = {()=>setCurrentTrack(item)} unvisible={unvisible} title={item.name} additionTitle={item.additionTitle} author={item.author}  album={item.album} time={item.duration_in_seconds}
               />)}
         </ContentPlaylist>
     )

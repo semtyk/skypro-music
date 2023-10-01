@@ -1,6 +1,6 @@
 import * as S from './styled.track'
 
-export default function Track({unvisible, title, additionTitle, author, album, time}) {
+export default function Track({unvisible, onNameClick, title, additionTitle, author, album, time}) {
 
   function toMMSS (sec) {
     let minutes = Math.floor(sec/ 60);
@@ -21,7 +21,7 @@ export default function Track({unvisible, title, additionTitle, author, album, t
                       </S.TrackTitleSvg>}
                     </S.TrackTitleImage>
                     <S.TrackTitleText unvisible={unvisible}>
-                      {!unvisible && <S.TrackTitleLink href="http://">
+                      {!unvisible && <S.TrackTitleLink onClick={onNameClick}>
                         {title}
                         {additionTitle && <S.TrackTitleLSpan> {additionTitle}</S.TrackTitleLSpan>}
                       </S.TrackTitleLink>}
