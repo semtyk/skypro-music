@@ -14,11 +14,11 @@ const ContentPlaylist = styled.div`
 `;
 
 export default function TrackList({arrOfTracks, unvisible}) {
- 
+    
     return (
         <ContentPlaylist>
               {arrOfTracks.map((item) => <Track 
-                unvisible={unvisible} title={item.title} additionTitle={item.additionTitle} author={item.author}  album={item.album} time={item.time}
+                unvisible={unvisible} title={item.name} additionTitle={item.additionTitle} author={item.author}  album={item.album} time={item.duration_in_seconds}
               />)}
         </ContentPlaylist>
     )

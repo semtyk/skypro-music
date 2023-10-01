@@ -7,7 +7,7 @@ import Category from "./pages/category/category";
 import ProtectedRoute from "./protectroutes";
 import NotFoundPage from "./pages/notfound/notfound";
 
-export default function AppRoutes({handleLogin, user, handleLogout}) {
+export default function AppRoutes({handleLogin, user, handleLogout, tracks, isTracksLoading, LoadTracksError}) {
 
     return (
         <Routes>
@@ -16,7 +16,7 @@ export default function AppRoutes({handleLogin, user, handleLogout}) {
             <Route path='/signup' element={<SignupPage />} />
             
             <Route element={<ProtectedRoute isAllowed={Boolean(user)} />}>
-                <Route path='/' element={<MainPage handleLogout={handleLogout}/>} />
+                <Route path='/' element={<MainPage handleLogout={handleLogout} tracks={tracks} isTracksLoading={isTracksLoading} LoadTracksError={LoadTracksError}/>} />
                 <Route path='/favorites' element={<FavoritePage />} />
                 <Route path='/category/:id' element={<Category />} />
             </Route>
