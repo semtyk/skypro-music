@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import Track from "../track/track";
 
-const ContentPlaylist = styled.div`
+const ContentPlaylist = styled.ul`
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -17,9 +17,15 @@ export default function TrackList({arrOfTracks, unvisible, setCurrentTrack}) {
     
     return (
         <ContentPlaylist>
-              {arrOfTracks.map((item) => <Track 
-                onNameClick = {()=>setCurrentTrack(item)} unvisible={unvisible} title={item.name} additionTitle={item.additionTitle} author={item.author}  album={item.album} time={item.duration_in_seconds}
-              />)}
+            
+              {arrOfTracks.map((item) => 
+              <li key={item.id}>
+              <Track               
+                onNameClick = {()=>setCurrentTrack(item)} unvisible={unvisible} title={item.name} 
+                additionTitle={item.additionTitle} author={item.author}  album={item.album} 
+                time={item.duration_in_seconds}
+              />
+              </li>)}
         </ContentPlaylist>
     )
 }
