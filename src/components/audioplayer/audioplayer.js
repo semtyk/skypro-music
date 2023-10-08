@@ -1,21 +1,31 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import * as S from './styled.audioplayer'
 
 export default function AudioPlayer({ unvisible, currentTrack }) {
   const [isPlaying, setIsPlaying] = useState(false)
+  const audioRef = useRef(null)
 
   const handlePlay = () => {
+    audioRef.current.play()
     setIsPlaying(true)
   }
   const handlePause = () => {
+    audioRef.current.pause()
     setIsPlaying(false)
   }
   const togglePlay = isPlaying ? handlePause : handlePlay
 
+  useEffect(() => {
+    if (currentTrack) {
+      setIsPlaying(true)
+      audioRef.current.play()
+    }
+  }, [currentTrack])
+
   return (
     <S.Bar>
-      <audio controls autoPlay style={{ display: 'none' }}>
-        <source src={`${currentTrack.track_file}`} type="audio/mpeg" />
+      <audio controls style={{ display: 'none' }} ref={audioRef}>
+        <source src={currentTrack.track_file} type="audio/mpeg" />
         <track kind="captions" />
       </audio>
       <S.BarContent>
