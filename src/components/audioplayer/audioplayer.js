@@ -18,6 +18,7 @@ export default function AudioPlayer({ unvisible, currentTrack }) {
   useEffect(() => {
     if (currentTrack) {
       setIsPlaying(true)
+      audioRef.current.src = currentTrack.track_file
       audioRef.current.play()
     }
   }, [currentTrack])
@@ -25,7 +26,7 @@ export default function AudioPlayer({ unvisible, currentTrack }) {
   return (
     <S.Bar>
       <audio controls style={{ display: 'none' }} ref={audioRef}>
-        <source src={currentTrack.track_file} type="audio/mpeg" />
+        <source type="audio/mpeg" />
         <track kind="captions" />
       </audio>
       <S.BarContent>
