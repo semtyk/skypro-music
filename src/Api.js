@@ -28,7 +28,7 @@ export async function getSelectionFromId(id) {
     `https://skypro-music-api.skyeng.tech/catalog/selection/${id}/`,
   )
   if (!response.ok) {
-    throw new Error('Ошибка загрузки подборок')
+    throw new Error('Ошибка загрузки плейлиста')
   }
   const data = await response.json()
   return data

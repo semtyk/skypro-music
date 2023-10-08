@@ -15,7 +15,6 @@ function App() {
     { id: 8 },
     { id: 9 },
     { id: 10 },
-    { id: 11 },
   ])
 
   const [selection, setSelection] = useState([{ id: 1 }, { id: 2 }, { id: 3 }])
