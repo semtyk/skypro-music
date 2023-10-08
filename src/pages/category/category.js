@@ -10,6 +10,7 @@ import { arrOfSelection } from '../../constants';
 
 export default function CategoryPage() {
     const [isSkeleton, setIsSkeleton] = useState(true);
+    const [currentTrack, setCurrentTrack] = useState(null);       //  Стейт для выбора трека и активации аудиоплеера
 
     useEffect(()=> {
       const timerId = setTimeout(() => {
@@ -28,10 +29,11 @@ export default function CategoryPage() {
     <S.Container>
     <S.Main>
         <NavMenu />
-        <CenterBlock isSkeleton = {isSkeleton} isFilterVisible = {false} playListName = {playlistArr.name} arrOfTracks = {playlistArr.items}/>
+        <CenterBlock isSkeleton = {isSkeleton} isFilterVisible = {false} playListName = {playlistArr.name} arrOfTracks = {playlistArr.items}
+        setCurrentTrack={setCurrentTrack}/>
         <SideBar unvisible = {isSkeleton} isSidebarCatVisible = {false} />
     </S.Main>
-    <AudioPlayer unvisible = {isSkeleton}/>
+    {currentTrack && <AudioPlayer unvisible = {isSkeleton} currentTrack={currentTrack}/>}
     <footer />
     </S.Container>
   </S.Wrapper>

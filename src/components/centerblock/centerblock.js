@@ -21,7 +21,7 @@ function FilterItem({isActive, onShow, title, listItems}) {
 }
 
 
-export default function CenterBlock({arrOfTracks, playListName, isFilterVisible, isSkeleton}) {
+export default function CenterBlock({arrOfTracks, playListName, isFilterVisible, isSkeleton, LoadTracksError, setCurrentTrack}) {
   const [activeIndex, setActiveIndex] = useState(0);
 
     function clbSetActiveIndex(key) {
@@ -46,8 +46,8 @@ export default function CenterBlock({arrOfTracks, playListName, isFilterVisible,
           (<S.CenterblockFilter>
             <S.FilterTitle>Искать по:</S.FilterTitle>
             <FilterItem title='исполнителю' listItems={listPerformer} onShow={clbSetActiveIndex(1)} isActive={activeIndex===1}/>
-            <FilterItem title='году выпуска' listItems={listGenre} onShow={clbSetActiveIndex(2)} isActive={activeIndex===2}/>
-            <FilterItem title='жанру' listItems={listYear} onShow={clbSetActiveIndex(3)} isActive={activeIndex===3}/>
+            <FilterItem title='жанру' listItems={listGenre} onShow={clbSetActiveIndex(2)} isActive={activeIndex===2}/>
+            <FilterItem title='году выпуска' listItems={listYear} onShow={clbSetActiveIndex(3)} isActive={activeIndex===3}/>
           </S.CenterblockFilter>)}
           <S.CenterBlockContent>
             <S.ContentTitle>
@@ -60,7 +60,8 @@ export default function CenterBlock({arrOfTracks, playListName, isFilterVisible,
                 </S.ContentTitleSvg>
               </S.ContentTitleCol04>
             </S.ContentTitle>
-            <TrackList unvisible = {isSkeleton} arrOfTracks = {arrOfTracks}/>
+            {LoadTracksError? `Не удалось загрузить плейлист,попробуйте позже:${LoadTracksError}`:<TrackList unvisible = {isSkeleton} arrOfTracks = {arrOfTracks}
+            setCurrentTrack={setCurrentTrack}/>}
           </S.CenterBlockContent>
         </S.MainCenterblock>
     )

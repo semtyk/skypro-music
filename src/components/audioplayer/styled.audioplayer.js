@@ -219,7 +219,7 @@ export const PlayedTrackAuthor = styled.div`
     grid-row: 2;
     grid-column: 2;
     grid-area: author;
-    min-width: 49px;
+    min-width: 150px;
     ${(props) =>
         { if (props.unvisible) {
             return css`${PlayedTrackUnvisMixin}`;

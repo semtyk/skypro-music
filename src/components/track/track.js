@@ -1,6 +1,16 @@
 import * as S from './styled.track'
 
-export default function Track({unvisible, title, additionTitle, author, album, time}) {
+export default function Track({unvisible, onNameClick, title, additionTitle, author, album, time}) {
+
+  function toMMSS (sec) {
+    let minutes = Math.floor(sec/ 60);
+    let seconds = sec - (minutes * 60);
+
+    if (minutes < 10) {minutes = `0${minutes}`;}
+    if (seconds < 10) {seconds = `0${seconds}`;}
+    return `${minutes}:${seconds}`;
+}
+
     return (
         <S.PlaylistItem>
                 <S.PlaylistTrack>
@@ -11,7 +21,7 @@ export default function Track({unvisible, title, additionTitle, author, album, t
                       </S.TrackTitleSvg>}
                     </S.TrackTitleImage>
                     <S.TrackTitleText unvisible={unvisible}>
-                      {!unvisible && <S.TrackTitleLink href="http://">
+                      {!unvisible && <S.TrackTitleLink onClick={onNameClick}>
                         {title}
                         {additionTitle && <S.TrackTitleLSpan> {additionTitle}</S.TrackTitleLSpan>}
                       </S.TrackTitleLink>}
@@ -31,7 +41,7 @@ export default function Track({unvisible, title, additionTitle, author, album, t
                     <S.TrackTimeSvg alt="time">
                       <use xlinkHref="/img/icon/sprite.svg#icon-like" />
                     </S.TrackTimeSvg>
-                    <S.TrackTimeText>{unvisible ? '0:00' : time}</S.TrackTimeText>
+                    <S.TrackTimeText>{unvisible ? '0:00' : toMMSS(time)}</S.TrackTimeText>
                   </div>
                 </S.PlaylistTrack>
         </S.PlaylistItem>
