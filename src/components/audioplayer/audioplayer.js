@@ -1,9 +1,45 @@
 import { useEffect, useRef, useState } from 'react'
 import * as S from './styled.audioplayer'
+import toMMSS from '../../helpers/helpers'
+import ProgressBar from './progressbar'
 
 export default function AudioPlayer({ unvisible, currentTrack }) {
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef(null)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
+  const [isRepeat, setIsRepeat] = useState(false)
+
+  useEffect(() => {
+    if (currentTrack) {
+      audioRef.current.src = currentTrack.track_file
+      audioRef.current.onloadeddata = () => {
+        setIsPlaying(true)
+        setDuration(audioRef.current.duration)
+        audioRef.current.play()
+      }
+    }
+    const instance = audioRef.current
+    instance.addEventListener('ended', () => {
+      setIsPlaying(false)
+    })
+    return () => {
+      instance.removeEventListener('ended', () => {
+        setIsPlaying(false)
+      })
+    }
+  }, [currentTrack])
+
+  useEffect(() => {
+    const updateTime = () => {
+      setCurrentTime(audioRef.current.currentTime)
+    }
+    const instance = audioRef.current
+    instance.addEventListener('timeupdate', updateTime)
+    return () => {
+      instance.removeEventListener('timeupdate', updateTime)
+    }
+  })
 
   const handlePlay = () => {
     audioRef.current.play()
@@ -13,24 +49,34 @@ export default function AudioPlayer({ unvisible, currentTrack }) {
     audioRef.current.pause()
     setIsPlaying(false)
   }
+  const handleSetCurrentTime = (e) => {
+    audioRef.current.currentTime = e.target.value
+  }
+  const handleRepeat = () => {
+    audioRef.current.loop = !isRepeat
+    setIsRepeat(!isRepeat)
+  }
   const togglePlay = isPlaying ? handlePause : handlePlay
-
-  useEffect(() => {
-    if (currentTrack) {
-      setIsPlaying(true)
-      audioRef.current.src = currentTrack.track_file
-      audioRef.current.play()
-    }
-  }, [currentTrack])
 
   return (
     <S.Bar>
-      <audio controls style={{ display: 'none' }} ref={audioRef}>
+      <audio controls src="" style={{ display: 'none' }} ref={audioRef}>
         <source type="audio/mpeg" />
         <track kind="captions" />
       </audio>
+      <S.BarPlayerDuration>
+        <span>
+          {toMMSS(currentTime)} / {toMMSS(duration)}
+        </span>
+      </S.BarPlayerDuration>
       <S.BarContent>
-        <S.BarPlayerProgress />
+        <S.BarPlayerProgress>
+          <ProgressBar
+            duration={duration}
+            currentTime={currentTime}
+            onChange={handleSetCurrentTime}
+          />
+        </S.BarPlayerProgress>
         <S.BarPlayerBlock>
           <S.BarPlayer>
             <S.PlayerControls>
@@ -54,7 +100,11 @@ export default function AudioPlayer({ unvisible, currentTrack }) {
                 </S.PlayerBtnNextSvg>
               </S.PlayerBtnNext>
               <S.PlayerBtnRepeat>
-                <S.PlayerBtnRepeatSvg alt="repeat">
+                <S.PlayerBtnRepeatSvg
+                  onClick={handleRepeat}
+                  isActive={isRepeat}
+                  alt="repeat"
+                >
                   <use xlinkHref="/img/icon/sprite.svg#icon-repeat" />
                 </S.PlayerBtnRepeatSvg>
               </S.PlayerBtnRepeat>

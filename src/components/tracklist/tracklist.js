@@ -10,7 +10,7 @@ const ContentPlaylist = styled.ul`
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  max-height: 800px;
+  max-height: 750px;
   overflow-y: auto;
   &::-webkit-scrollbar {
     width: 4px;
