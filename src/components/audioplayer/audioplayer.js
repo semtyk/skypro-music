@@ -9,6 +9,7 @@ export default function AudioPlayer({ unvisible, currentTrack }) {
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const [isRepeat, setIsRepeat] = useState(false)
+  const [volume, setVolume] = useState(0.69)
 
   useEffect(() => {
     if (currentTrack) {
@@ -49,14 +50,22 @@ export default function AudioPlayer({ unvisible, currentTrack }) {
     audioRef.current.pause()
     setIsPlaying(false)
   }
+  const togglePlay = isPlaying ? handlePause : handlePlay
+
   const handleSetCurrentTime = (e) => {
     audioRef.current.currentTime = e.target.value
+  }
+  const handleSetVolume = (e) => {
+    audioRef.current.volume = e.target.value
+    setVolume(e.target.value)
   }
   const handleRepeat = () => {
     audioRef.current.loop = !isRepeat
     setIsRepeat(!isRepeat)
   }
-  const togglePlay = isPlaying ? handlePause : handlePlay
+  const handleUnrealized = () => {
+    alert('Еще не реализовано!1!1')
+  }
 
   return (
     <S.Bar>
@@ -81,7 +90,7 @@ export default function AudioPlayer({ unvisible, currentTrack }) {
           <S.BarPlayer>
             <S.PlayerControls>
               <S.PlayerBtnPrev>
-                <S.PlayerBtnPrevSvg alt="prev">
+                <S.PlayerBtnPrevSvg onClick={handleUnrealized} alt="prev">
                   <use xlinkHref="/img/icon/sprite.svg#icon-prev" />
                 </S.PlayerBtnPrevSvg>
               </S.PlayerBtnPrev>
@@ -95,7 +104,7 @@ export default function AudioPlayer({ unvisible, currentTrack }) {
                 </S.PlayerBtnPlaySvg>
               </S.PlayerBtnPlay>
               <S.PlayerBtnNext>
-                <S.PlayerBtnNextSvg alt="next">
+                <S.PlayerBtnNextSvg onClick={handleUnrealized} alt="next">
                   <use xlinkHref="/img/icon/sprite.svg#icon-next" />
                 </S.PlayerBtnNextSvg>
               </S.PlayerBtnNext>
@@ -109,7 +118,7 @@ export default function AudioPlayer({ unvisible, currentTrack }) {
                 </S.PlayerBtnRepeatSvg>
               </S.PlayerBtnRepeat>
               <S.PlayerBtnShuffle>
-                <S.PlayerBtnShuffleSvg alt="shuffle">
+                <S.PlayerBtnShuffleSvg onClick={handleUnrealized} alt="shuffle">
                   <use xlinkHref="/img/icon/sprite.svg#icon-shuffle" />
                 </S.PlayerBtnShuffleSvg>
               </S.PlayerBtnShuffle>
@@ -160,7 +169,13 @@ export default function AudioPlayer({ unvisible, currentTrack }) {
                 </S.VolumeSvg>
               </S.VolumeImage>
               <S.VolumeProgress>
-                <S.VolumeProgressLine type="range" name="range" />
+                <ProgressBar
+                  duration={1}
+                  currentTime={volume}
+                  onChange={handleSetVolume}
+                  color="#FFFFFF"
+                  bgcolor="#797979"
+                />
               </S.VolumeProgress>
             </S.VolumeContent>
           </S.BarVolumeBlock>

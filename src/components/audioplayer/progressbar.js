@@ -6,7 +6,7 @@ export const StyledProgressInput = styled.input`
   --progress-color: #b672ff;
   --progress-color: ${(props) => props.$color ?? '#b672ff'};
 
-  --progress-bg-color: #2e2e2e;
+  --progress-bg-color: ${(props) => props.$bgcolor ?? '#2e2e2e'};
 
   margin: 0;
   width: 100%;
@@ -58,7 +58,13 @@ export const StyledProgressInput = styled.input`
   }
 `
 
-export default function ProgressBar({ duration, currentTime, onChange }) {
+export default function ProgressBar({
+  duration,
+  currentTime,
+  onChange,
+  color,
+  bgcolor,
+}) {
   return (
     <StyledProgressInput
       type="range"
@@ -67,7 +73,8 @@ export default function ProgressBar({ duration, currentTime, onChange }) {
       value={currentTime}
       step={0.01}
       onChange={onChange}
-      $color="#B672FF"
+      $color={color}
+      $bgcolor={bgcolor}
     />
   )
 }
