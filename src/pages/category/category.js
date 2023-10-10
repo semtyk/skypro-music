@@ -37,7 +37,7 @@ export default function CategoryPage() {
     setIsTracksLoading(true) //  Ставим стейт загрузки в состояние вкл
     getSelectionFromId(Number(params.id))
       .then((data) => {
-        console.log(data)
+        // console.log(data)
         setTracks(data) //  при успешном получении ответа от сервера, обновляем стейт данных
       })
       .catch((error) => {

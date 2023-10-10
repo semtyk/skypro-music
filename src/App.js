@@ -29,7 +29,7 @@ function App() {
     setIsTracksLoading(true) //  Ставим стейт загрузки в состояние вкл
     getAllTracks()
       .then((data) => {
-        console.log(data)
+        // console.log(data)
         setTracks(data) //  при успешном получении ответа от сервера, обновляем стейт данных
       })
       .catch((error) => {
@@ -46,7 +46,7 @@ function App() {
     // setIsTracksLoading(true) //  Ставим стейт загрузки в состояние вкл
     getSelection()
       .then((data) => {
-        console.log(data)
+        // console.log(data)
         setSelection(data) //  при успешном получении ответа от сервера, обновляем стейт данных
       })
       .catch((error) => {
